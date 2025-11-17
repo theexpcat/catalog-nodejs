@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Catalog</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="text-end mb-3">
+      <a href="/weather" class="btn btn-info">Check Weather</a>
+    </div>
+    <h1>Book Catalog</h1>
+    <div class="row">
+      <div class="col-md-8">
+        <h2>Books</h2>
+        <div class="row">
+          <% books.forEach(book => { %>
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"><%= book.Name %></h5>
+                  <p class="card-text">by <%= book.Author %></p>
+                  <p class="card-text">Price: $<%= book.Price %></p>
+                  <p class="card-text">In Stock: <%= book.InStock %></p>
+                  <form action="/add-to-cart/<%= book.ID %>" method="post">
+                    <button type="submit" class="btn btn-primary">Add to Cart</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          <% }); %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h2>Shopping Cart</h2>
+        <ul class="list-group">
+          <% for (const item in cart) { %>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <%= item %>
+              <span class="badge bg-primary rounded-pill"><%= cart[item] %></span>
+            </li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
