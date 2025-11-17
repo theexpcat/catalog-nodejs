@@ -5,4 +5,4 @@ let books = [
       {ID: 4, Name: "Clean Code", Author: "Robert Martin", Pages: 464, ImageUrl: "clean.jpg", InStock: 15, Price: 87.00 }
     ];
 
-    module.exports = books;
+    export default books;

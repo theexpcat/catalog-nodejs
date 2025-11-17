@@ -1,7 +1,11 @@
-const express = require('express');
-const path = require('path');
-const axios = require('axios');
-const books = require('./data');
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import axios from 'axios';
+import books from './data.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const port = process.env.PORT || 3000;
